@@ -1,9 +1,10 @@
 package com.worldline.interview;
 
 import java.util.Collections;
+import java.util.Objects;
 
 public class WidgetMachine {
-    private AbstractEngine engine;
+    private final AbstractEngine engine;
 
     public WidgetMachine() {
         // Given default engine supports original WidgetMachine.
@@ -11,6 +12,9 @@ public class WidgetMachine {
     }
 
     public WidgetMachine(AbstractEngine engine) {
+        if (Objects.isNull(engine)) {
+            throw new IllegalArgumentException("Engine is required.");
+        }
         this.engine = engine;
     }
 
